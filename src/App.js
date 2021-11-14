@@ -1,14 +1,17 @@
 import React from 'react'
 import chimp from './img/monke.jpg'
 import './App.css';
+import Row from './Row'
 
 function App() {
     return (
-        // <h1> Testing </h1>
-        <img src={chimp} class="chimp" />
-        // <body>
-        //     <img src='img/monke.jpg' class="monke-img" alt=''/>
-        // </body>
+        <>
+            <img src={chimp} class="chimp" />
+            <h1> Convert Currencies </h1>
+            <Row />
+            <div>=</div>
+            <Row /> 
+        </>
     );
 }
 

@@ -1,0 +1,12 @@
+.row {
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+}
+
+.numInput {
+    border: 2px solid #333;
+    border-radius: .3em;
+    padding: .25rem;
+    width: 12em;
+    margin-right: 2mm;
+}
