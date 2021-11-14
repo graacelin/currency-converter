@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import chimp from './img/monke.jpg'
 import './App.css';
 import Row from './Row'
 
-const BASE_URL = 'https://api.exchangeratesapi.io/latest'
+const BASE_URL = "http://api.exchangeratesapi.io/v1/latest?access_key=3ebad325d5d517fefa6dbab75e0ae27b&format=1"
 
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
