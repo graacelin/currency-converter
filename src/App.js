@@ -9,7 +9,7 @@ function App() {
             <img src={chimp} class="chimp" />
             <h1> Convert Currencies </h1>
             <Row />
-            <div>=</div>
+            <div className="equals">=</div>
             <Row /> 
         </>
     );
