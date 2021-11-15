@@ -3,20 +3,18 @@
 * {
   font-family: 'Raleway', sans-serif;
   transition: background-color 0.6s ease, color 1s ease;
-  /* background-color: white;
-  color: #a1a1a1; */
 }
 
-.dark-theme {
-  background-color: #5a5a5a;
-  color: white;
+.dark-theme, button{
+  background-color: #161821;
+  color: #c6c8d1;
 }
 
 button {
   position: absolute;
   top: 5px;
   right: 5px;
-  background: white;
+  background-color: white;
   padding: 5px;
   border: none;
 }

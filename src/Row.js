@@ -8,7 +8,8 @@ export default function Row(props) {
         selectedCurrency,
         onChangeCurrency,
         onChangeAmount,
-        amount
+        amount,
+        countryFlag
     } = props
     return (
         <div className="row">
@@ -18,6 +19,8 @@ export default function Row(props) {
                     <option key={option} value={option}>{option}</option>
                 ))}
             </select>
+            <span class={countryFlag}></span>
+            
         </div>
     )
 }
