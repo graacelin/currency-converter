@@ -169,9 +169,9 @@ let country_list = {
 
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
-    const [fromCurrency, setFromCurrency] = useState()
-    const [toCurrency, setToCurrency] = useState()
-    const [exchangeRate, setExchangeRate] = useState()
+    const [fromCurrency, setFromCurrency] = useState('USD')
+    const [toCurrency, setToCurrency] = useState('USD')
+    const [exchangeRate, setExchangeRate] = useState(1)
     const [amount, setAmount] = useState(1)
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
 
@@ -184,35 +184,36 @@ function App() {
         fromAmount = amount / exchangeRate
     }
 
+
     useEffect(() => {
-        fetch(BASE_URL)
-        .then(res => res.json())
-        .then(data => {
-            setCurrencyOptions([...Object.keys(data.conversion_rates)])
-            setFromCurrency(data.base)
-            setToCurrency(Object.keys(data.conversion_rates)[0])
-            setExchangeRate(data.conversion_rates[Object.keys(data.conversion_rates)[0]])
+        fetch(BASE_URL).then(res => res.json()).then(data => {
+            setCurrencyOptions([...Object.keys(data.conversion_rates)]);
+            setFromCurrency(data.base_code);
+            setToCurrency(Object.keys(data.conversion_rates)[0]);
+            setExchangeRate(data.conversion_rates[Object.keys(data.conversion_rates)[0]]);
         })
     }, [])
+    
 
     useEffect(() => {
         if (fromCurrency != null && toCurrency != null) {
-          fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
+          fetch(`https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/pair/${fromCurrency}/${toCurrency}`)
             .then(res => res.json())
-            .then(data => setExchangeRate(data.conversion_rates[toCurrency]))
+            .then(data => setExchangeRate(data.conversion_rate))
         }
       }, [fromCurrency, toCurrency])
 
-    console.log(currencyOptions)
 
     function handleFromAmountChange(e) {
         setAmount(e.target.value)
         setAmountInFromCurrency(true)
+        
     }
 
     function handleToAmountChange(e) {
-        setAmount(e.target.value)
         setAmountInFromCurrency(false)
+        setAmount(e.target.value)
+        console.log(toCurrency)
     }
 
     return (
