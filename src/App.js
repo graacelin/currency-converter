@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import Row from './Row'
-import country_list from './country-list.js'
+import { country_list } from './country-list.js'
 
 const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/CAD"
 
@@ -92,7 +92,9 @@ function App() {
 
     function handleFromCurrencyChange(e) {
         setFromCurrency(e.target.value)
+        console.log(country_list)
         for(let code in country_list) {
+            console.log(code)
             if(code === e.target.value) {
                 let country = String(country_list[e.target.value]).toLowerCase();
                 console.log(country)
