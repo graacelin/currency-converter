@@ -5,16 +5,28 @@
   transition: background-color 0.6s ease, color 1s ease;
 }
 
-.dark-theme, button{
-  background-color: #161821;
-  color: #c6c8d1;
+html{
+  --bg: #e8e9ec;
+  /* --bg-panel: #b2b2b2; */
+  --bg-panel: #33374c;
+  /* --color-text: #33374c; */
+  --color-text: #b2b2b2;
+}
+
+html[data-theme='dark'] {
+  --bg: #161821;
+  /* --bg-panel: #595e76; */
+  --bg-panel: #c6c8d1; 
+  /* --color-text: #c6c8d1; */
+  --color-text: #595e76;
 }
 
 button {
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: white;
+  background-color: var(--color-text);
+  color: var(--bg);
   padding: 5px;
   border: none;
 }
@@ -33,7 +45,8 @@ button {
 }
 
 .slider {
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-color: var(--color-text);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -55,7 +68,8 @@ button {
 }
 
 input:checked + .slider {
-  background-color: #000000;
+  /* background-color: #000000; */
+  background-color: var(--bg);
 }
 
 input:checked + .slider:before {
@@ -76,7 +90,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #a1a1a1;
+  background: var(--bg);
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -84,8 +99,8 @@ main {
   width: 350px;
   padding: 30px;
   border-radius: 7px;
-  /* background: #a1a1a1; */
-  box-shadow: 7px 7px 20px rgb(0 0 0 / 50%);
+  background-color: var(--bg-panel);
+  /* box-shadow: 7px 7px 20px var(--color-text); */
 }
 
 h1 {
@@ -104,7 +119,9 @@ input {
   padding: 0px 15px;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(153, 153, 153);
+  color: var(--bg-panel);
+  background-color: var(--color-text);
+  border-color: var(--color-text);
   border-image: initial;
 }
 

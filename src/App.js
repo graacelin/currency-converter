@@ -315,7 +315,23 @@ var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
 button.addEventListener ("click", function() {
-    document.body.classList.toggle('dark-theme');
+    let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
+    if (theme ==='dark'){
+        changeThemeToLight()
+    }else{
+        changeThemeToDark()
+    }  
 });
+
+let theme = localStorage.getItem('data-theme');
+const changeThemeToDark = () => {
+    document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
+    localStorage.setItem("data-theme", "dark") // save theme to local storage
+}
+
+const changeThemeToLight = () => {
+    document.documentElement.setAttribute("data-theme", "light") // set theme light
+    localStorage.setItem("data-theme", 'light') // save theme to local storage
+}
 
 export default App;
