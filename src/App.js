@@ -173,6 +173,8 @@ function App() {
     const [exchangeRate, setExchangeRate] = useState(1)
     const [amount, setAmount] = useState(1)
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
+    const [countryFlagFrom, setCountryFlagFrom] = useState()
+    const [countryFlagTo, setCountryFlagTo] = useState()
 
     let toAmount, fromAmount
     if (amountInFromCurrency) {
@@ -190,6 +192,8 @@ function App() {
             setFromCurrency(data.base_code);
             setToCurrency(Object.keys(data.conversion_rates)[0]);
             setExchangeRate(data.conversion_rates[Object.keys(data.conversion_rates)[0]]);
+            setCountryFlagTo(`flag-icon flag-icon-ca`)
+            setCountryFlagFrom(`flag-icon flag-icon-ca`)
         })
     }, [])
     
@@ -215,37 +219,51 @@ function App() {
         console.log(toCurrency)
     }
 
+
+    function handleFromCurrencyChange(e) {
+        setFromCurrency(e.target.value)
+        for(let code in country_list) {
+            if(code === e.target.value) {
+                let country = String(country_list[e.target.value]).toLowerCase();
+                console.log(country)
+                setCountryFlagFrom(`flag-icon flag-icon-${country}`)
+            }
+        }
+    }
+
+    function handleToCurrencyChange(e) {
+        setToCurrency(e.target.value)
+        for(let code in country_list) {
+            if(code === e.target.value) {
+                let country = String(country_list[e.target.value]).toLowerCase();
+                console.log(country)
+                setCountryFlagTo(`flag-icon flag-icon-${country}`)
+            }
+        }
+    }
+
     return (
         <>
             <h1> Convert Currencies </h1>
             <Row 
                 currencyOptions={currencyOptions}
                 selectedCurrency={fromCurrency}
-                onChangeCurrency={e => 
-                    {
-                        setFromCurrency(e.target.value)
-                        for(let code in country_list) {
-                            if(code == fromCurrency) {
-                                // let text=country_list[code].toLowerCase();
-                                let text="ga"
-                                let toAdd=`flag-icon flag-icon-${text}`;
-                                // <span class={toAdd}></span>
-                            }
-                        }
-                    }
-                }
                 onChangeAmount={handleFromAmountChange}
                 amount={fromAmount}
+                onChangeCurrency={handleFromCurrencyChange}
+                countryFlag={countryFlagFrom}
             />
             <div className="equals">=</div>
             <Row 
                 currencyOptions={currencyOptions}
                 selectedCurrency={toCurrency}
-                onChangeCurrency={e => setToCurrency(e.target.value)}
                 onChangeAmount={handleToAmountChange}
                 amount={toAmount}
-            
+                onChangeCurrency={handleToCurrencyChange}
+                countryFlag={countryFlagTo}
+                
             /> 
+            
         </>
     );
 }
