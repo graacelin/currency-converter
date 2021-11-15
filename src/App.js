@@ -1,3 +1,4 @@
+import { div } from 'prelude-ls';
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import Row from './Row'
@@ -166,6 +167,38 @@ let country_list = {
     "ZWD" : "ZW"
 }
 
+// function createToggle() {
+//     {/* toggle theme */}
+//     <div class="container">
+//         <label class="switch" for="checkbox">
+//             <input type="checkbox" id="checkbox" />
+//             <div class="slider round"></div>
+//         </label>
+//     </div>
+// }
+
+// createToggle();
+
+// const toggleSwitch =
+//     document.querySelector('.theme-slider input[type="checkbox"]');
+ 
+// /* Function to change theme */
+// function switchTheme(e) {
+ 
+//     /* Once checkbox is checked default theme change to dark */
+//     if (e.target.checked) {
+//         document.documentElement.setAttribute('theme', 'dark');
+//     }
+ 
+//     /* While page in dark mode and checkbox is
+//     checked then theme back to change light*/
+//     else {
+//         document.documentElement.setAttribute('theme', 'light');
+//     }
+// }
+ 
+// toggleSwitch.addEventListener('change', switchTheme, false);
+
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
     const [fromCurrency, setFromCurrency] = useState('CAD')
@@ -182,7 +215,6 @@ function App() {
         toAmount = amount
         fromAmount = amount / exchangeRate
     }
-
 
     useEffect(() => {
         fetch(BASE_URL).then(res => res.json()).then(data => {
@@ -218,6 +250,7 @@ function App() {
     return (
         <>
             <h1> Convert Currencies </h1>
+
             <Row 
                 currencyOptions={currencyOptions}
                 selectedCurrency={fromCurrency}
@@ -244,10 +277,26 @@ function App() {
                 onChangeCurrency={e => setToCurrency(e.target.value)}
                 onChangeAmount={handleToAmountChange}
                 amount={toAmount}
-            
             /> 
         </>
+
     );
 }
+
+// const themeSwitch = document.querySelector('switch');
+
+// themeSwitch.addEventListener('change', () => {
+//   document.body.classList.toggle('dark-theme');
+// });
+
+var button = document.createElement("button");
+button.innerHTML = "Switch Theme";
+
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(button);
+
+button.addEventListener ("click", function() {
+    document.body.classList.toggle('dark-theme');
+});
 
 export default App;

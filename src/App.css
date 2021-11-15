@@ -2,6 +2,74 @@
 
 * {
   font-family: 'Raleway', sans-serif;
+  transition: background-color 0.6s ease, color 1s ease;
+  /* background-color: white;
+  color: #a1a1a1; */
+}
+
+.dark-theme {
+  background-color: #5a5a5a;
+  color: white;
+}
+
+button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: white;
+  padding: 5px;
+  border: none;
+}
+
+.switch {
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 60px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: rgb(255, 255, 255);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: rgba(230, 146, 146, 0.479);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #000000;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 body {
@@ -10,7 +78,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #5a5a5a;
+  background: #a1a1a1;
   text-align: center;
 }
 
@@ -18,8 +86,8 @@ main {
   width: 350px;
   padding: 30px;
   border-radius: 7px;
-  background: #a1a1a1;
-  box-shadow: 7px 7px 20px rgb(0 0 0 / 5%);
+  /* background: #a1a1a1; */
+  box-shadow: 7px 7px 20px rgb(0 0 0 / 50%);
 }
 
 h1 {
