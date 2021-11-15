@@ -1,4 +1,3 @@
-import { div } from 'prelude-ls';
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import Row from './Row'
@@ -323,7 +322,7 @@ button.addEventListener ("click", function() {
     }  
 });
 
-let theme = localStorage.getItem('data-theme');
+// let theme = localStorage.getItem('data-theme');
 const changeThemeToDark = () => {
     document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
     localStorage.setItem("data-theme", "dark") // save theme to local storage
