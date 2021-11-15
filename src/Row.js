@@ -1,5 +1,6 @@
 import React from 'react'
 import './Row.css'
+import '../node_modules/flag-icon-css/css/flag-icons.min.css'
 
 export default function Row(props) {
     const {
@@ -16,7 +17,6 @@ export default function Row(props) {
                 {currencyOptions.map(option => (
                     <option key={option} value={option}>{option}</option>
                 ))}
-                
             </select>
         </div>
     )

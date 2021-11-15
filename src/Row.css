@@ -10,3 +10,9 @@
     width: 12em;
     margin-right: 2mm;
 }
+
+.flag-icon {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
