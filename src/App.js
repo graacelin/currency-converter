@@ -3,7 +3,7 @@ import chimp from './img/monke.jpg'
 import './App.css';
 import Row from './Row'
 
-const BASE_URL = "http://api.exchangeratesapi.io/v1/latest?access_key=3ebad325d5d517fefa6dbab75e0ae27b&format=1"
+const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/USD"
 
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
@@ -26,10 +26,10 @@ function App() {
         fetch(BASE_URL)
         .then(res => res.json())
         .then(data => {
-            setCurrencyOptions([...Object.keys(data.rates)])
+            setCurrencyOptions([...Object.keys(data.conversion_rates)])
             setFromCurrency(data.base)
-            setToCurrency(Object.keys(data.rates)[0])
-            setExchangeRate(data.rates[Object.keys(data.rates)[0]])
+            setToCurrency(Object.keys(data.conversion_rates)[0])
+            setExchangeRate(data.conversion_rates[Object.keys(data.conversion_rates)[0]])
         })
     }, [])
 
@@ -37,7 +37,7 @@ function App() {
         if (fromCurrency != null && toCurrency != null) {
           fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
             .then(res => res.json())
-            .then(data => setExchangeRate(data.rates[toCurrency]))
+            .then(data => setExchangeRate(data.conversion_rates[toCurrency]))
         }
       }, [fromCurrency, toCurrency])
 
