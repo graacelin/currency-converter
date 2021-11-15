@@ -4,8 +4,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background: #5a5a5a;
   text-align: center;
-  background-color: tan;
+}
+
+main {
+  width: 350px;
+  padding: 30px;
+  border-radius: 7px;
+  background: #a1a1a1;
+  box-shadow: 7px 7px 20px rgb(0 0 0 / 5%);
 }
 
 h1 {
@@ -18,11 +26,16 @@ h1 {
   font-size: 2rem;
 }
 
-.chimp {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+input {
+  height: 40px;
+  font-size: 17px;
+  padding: 0px 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(153, 153, 153);
+  border-image: initial;
+}
 
-  cursor: pointer;
+h1 {
+  padding: 20px
 }

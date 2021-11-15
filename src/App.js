@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import chimp from './img/monke.jpg'
 import './App.css';
 import Row from './Row'
 
-const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/USD"
+const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/CAD"
 
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
-    const [fromCurrency, setFromCurrency] = useState('USD')
-    const [toCurrency, setToCurrency] = useState('USD')
+    const [fromCurrency, setFromCurrency] = useState('CAD')
+    const [toCurrency, setToCurrency] = useState('CAD')
     const [exchangeRate, setExchangeRate] = useState(1)
     const [amount, setAmount] = useState(1)
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
@@ -56,7 +55,6 @@ function App() {
 
     return (
         <>
-            <img src={chimp} className="chimp" />
             <h1> Convert Currencies </h1>
             <Row 
                 currencyOptions={currencyOptions}
