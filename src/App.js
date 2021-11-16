@@ -4,12 +4,10 @@ import Row from './Row'
 import { country_list } from './country-list.js'
 import DarkModeToggle from "react-dark-mode-toggle";
 
-const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/CAD"
+const BASE_URL = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/CAD`
 
 const ModeSelector = () => {
     const [isDarkMode, setIsDarkMode] = useState();
-
-
 
     if (typeof isDarkMode === 'undefined') {
         if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
@@ -19,7 +17,7 @@ const ModeSelector = () => {
             setIsDarkMode(false)
         }
     }
-    
+    5
     function changeTheme() {
         setIsDarkMode(!isDarkMode)
         if (isDarkMode) {
