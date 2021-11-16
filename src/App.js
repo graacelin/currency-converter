@@ -7,8 +7,19 @@ import DarkModeToggle from "react-dark-mode-toggle";
 const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/CAD"
 
 const ModeSelector = () => {
-    const [isDarkMode, setIsDarkMode] = useState(() => false);
+    const [isDarkMode, setIsDarkMode] = useState();
 
+
+
+    if (typeof isDarkMode === 'undefined') {
+        if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+            setIsDarkMode(true)
+            changeTheme()
+        } else {
+            setIsDarkMode(false)
+        }
+    }
+    
     function changeTheme() {
         setIsDarkMode(!isDarkMode)
         if (isDarkMode) {
@@ -72,10 +83,12 @@ function App() {
 
     const handleToCurrencyChange = (e) => {
         setToCurrency(e.target.value)
+        setAmountInFromCurrency(true)
     }
 
     const handleFromCurrencyChange = (e) => {
         setFromCurrency(e.target.value)
+        setAmountInFromCurrency(true)
     }
 
     return (

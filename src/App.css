@@ -5,96 +5,31 @@
   transition: background-color 0.4s ease;
 }
 
-:root {
-  --color-light: #ced2ff;
-  --color-dark: #363636;
-  --color-signal: #dfe3ff;
-  
-  --bg-panel: var(--color-signal);
-  --color-text: var(--color-dark);
-  --color-accent: var(--color-light);
-  
+:root {  
+  --color-text: #33334c;
+  --bg-panel: #d5d9ff;
+  --color-focus: #b7beff;
+
   --size-bezel: .5rem;
   --size-radius: 4px;
 }
 
 html{
-  --bg: --color-light;
-  /* --bg-panel: #b2b2b2; */
-  --bg-panel: #33374c;
-  /* --color-text: #33374c; */
-  --color-text: #33374c;
+  --bg: #ececff;
+  --color-shadow: var(--color-text)
 }
 
 html[data-theme='dark'] {
-  --bg: #161821;
-  /* --bg-panel: #595e76; */
-  --bg-panel: #c6c8d1; 
-  /* --color-text: #c6c8d1; */
-  --color-text: #595e76;
+  --bg: #141620;
+  --color-shadow: #4c5064;
 }
 
 button {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: var(--color-text);
-  color: var(--bg);
+  top: 10px;
+  right: 10px;
   padding: 5px;
   border: none;
-}
-
-.switch {
-  display: inline-block;
-  height: 34px;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 60px;
-}
-
-.switch input {
-  display: none;
-}
-
-.slider {
-  /* background-color: rgb(255, 255, 255); */
-  background-color: var(--color-text);
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-}
-
-.slider:before {
-  background-color: rgba(230, 146, 146, 0.479);
-  bottom: 4px;
-  content: "";
-  height: 26px;
-  left: 4px;
-  position: absolute;
-  transition: .4s;
-  width: 26px;
-}
-
-input:checked + .slider {
-  /* background-color: #000000; */
-  background-color: var(--bg);
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 body {
@@ -112,14 +47,13 @@ main {
   width: 400px;
   background: var(--bg);
   border-radius: var(--size-radius);
-  border: 3px solid var(--color-shadow, currentColor);
-  box-shadow: .8rem .8rem 0 var(--color-shadow, currentColor);
+  border: 3px solid var(--color-shadow);
+  box-shadow: .8rem .8rem 0 var(--color-shadow);
   padding: 25px;
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 7px;
   background-color: var(--bg-panel);
-  /* box-shadow: 7px 7px 20px var(--color-text); */
 }
 
 h1 {
@@ -168,6 +102,9 @@ select {
   margin-right: 2mm;
 }
 
+select:focus, .numInput:focus {
+  background-color: var(--color-focus);
+}
 
 
 /* Gets rid of scroll on number input */
