@@ -168,11 +168,9 @@ select {
   margin-right: 2mm;
 }
 
-.darkModeToggle {
-  padding: 20px
-}
 
 
+/* Gets rid of scroll on number input */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
