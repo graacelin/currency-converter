@@ -1,16 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
 * {
   font-family: 'Raleway', sans-serif;
   transition: background-color 0.4s ease;
 }
 
+:root {
+  --color-light: #ced2ff;
+  --color-dark: #2b2b2b;
+  --color-signal: #c1caff;
+  
+  --bg-panel: var(--color-signal);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-dark);
+  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+}
+
 html{
-  --bg: #e8e9ec;
+  --bg: --color-light;
   /* --bg-panel: #b2b2b2; */
   --bg-panel: #33374c;
   /* --color-text: #33374c; */
-  --color-text: #b2b2b2;
+  --color-text: #33374c;
 }
 
 html[data-theme='dark'] {
@@ -96,16 +109,25 @@ body {
 }
 
 main {
-  width: 350px;
+  width: 30%;
+  background: var(--bg);
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: .8rem .8rem 0 var(--color-shadow, currentColor);
   padding: 30px;
   border-radius: 7px;
   background-color: var(--bg-panel);
+  padding-right: 50px;
+  padding-bottom: 50px;
   /* box-shadow: 7px 7px 20px var(--color-text); */
 }
 
 h1 {
   margin: 0;
-  margin-top: .6rem;
+  padding: 5% 0% 5% 0%;
+  font-weight: bold;
 }
 
 .equals {
@@ -113,18 +135,57 @@ h1 {
   font-size: 2rem;
 }
 
-input {
-  height: 40px;
-  font-size: 17px;
-  padding: 0px 15px;
-  border-width: 1px;
-  border-style: solid;
-  color: var(--bg-panel);
-  background-color: var(--color-text);
-  border-color: var(--color-text);
-  border-image: initial;
+.row {
+  margin-top: .5vh;
+  margin-bottom: .5vh;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-h1 {
-  padding: 20px
+.numInput {
+  width: 50%;
+  font-size: 17px;
+  border-width: 1px;
+  border-style: solid;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 2px solid #333;
+  border-radius: .3em;
+  padding: .25rem;
+  margin-right: 2mm;
+}
+
+select {
+  width: 20%;
+  font-size: 17px;
+  border-width: 1px;
+  border-style: solid;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 2px solid #333;
+  border-radius: .3em;
+  padding: .25rem;
+  margin-right: 2mm;
+}
+
+.flag-icon {
+  /* background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat; */
+  width: 50px;
+  margin-left: 10px;
+
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

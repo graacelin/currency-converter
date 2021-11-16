@@ -127,15 +127,15 @@ function App() {
                 countryFlag={countryFlagFrom}
             />
             <div className="equals">=</div>
-            <Row 
-                currencyOptions={currencyOptions}
-                selectedCurrency={toCurrency}
-                onChangeAmount={handleToAmountChange}
-                amount={toAmount}
-                onChangeCurrency={handleToCurrencyChange}
-                countryFlag={countryFlagTo}
-                
-            /> 
+                <Row 
+                    currencyOptions={currencyOptions}
+                    selectedCurrency={toCurrency}
+                    onChangeAmount={handleToAmountChange}
+                    amount={toAmount}
+                    onChangeCurrency={handleToCurrencyChange}
+                    countryFlag={countryFlagTo}
+                    
+                /> 
             
         </>
 
