@@ -4,7 +4,9 @@ import Row from './Row'
 import { country_list } from './country-list.js'
 import DarkModeToggle from "react-dark-mode-toggle";
 
-const BASE_URL = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/CAD`
+console.log(process.env.REACT_APP_API_KEY)
+const BASE_URL = `https://v6.exchangerate-api.com/v6/${process.env.REACT_APP_API_KEY}/latest/CAD`
+
 
 const ModeSelector = () => {
     const [isDarkMode, setIsDarkMode] = useState();
@@ -17,7 +19,7 @@ const ModeSelector = () => {
             setIsDarkMode(false)
         }
     }
-    5
+    
     function changeTheme() {
         setIsDarkMode(!isDarkMode)
         if (isDarkMode) {
@@ -60,7 +62,7 @@ function App() {
 
     useEffect(() => {
         if (fromCurrency != null && toCurrency != null) {
-            fetch(`https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/pair/${fromCurrency}/${toCurrency}`)
+            fetch(`https://v6.exchangerate-api.com/v6/${process.env.REACT_APP_API_KEY}/pair/${fromCurrency}/${toCurrency}`)
                 .then(res => res.json())
                 .then(data => setExchangeRate(data.conversion_rate))
         }
