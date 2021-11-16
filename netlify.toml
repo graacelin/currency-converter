@@ -3,12 +3,5 @@
   publish="/build"
   base = ""
 
-[context.production]
-  publish = "dist/my-project"
-  command = "ng build --prod"
-  environment = { REACT_APP_API_KEY = "109faea8a667b7b4f51dc7e4" }
-
-[context.staging] # “staging” is a branch name
-  command = "echo 'staging'"
-  base = "staging"
-  environment = { REACT_APP_API_KEY = "109faea8a667b7b4f51dc7e4" }
+[build.environment]
+  REACT_APP_API_KEY = "109faea8a667b7b4f51dc7e4"
