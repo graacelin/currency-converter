@@ -2,40 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 import Row from './Row'
 import { country_list } from './country-list.js'
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const BASE_URL = "https://v6.exchangerate-api.com/v6/4efd06e36cfb923dccc7819c/latest/CAD"
-
-// function createToggle() {
-//     {/* toggle theme */}
-//     <div class="container">
-//         <label class="switch" for="checkbox">
-//             <input type="checkbox" id="checkbox" />
-//             <div class="slider round"></div>
-//         </label>
-//     </div>
-// }
-
-// createToggle();
-
-// const toggleSwitch =
-//     document.querySelector('.theme-slider input[type="checkbox"]');
- 
-// /* Function to change theme */
-// function switchTheme(e) {
- 
-//     /* Once checkbox is checked default theme change to dark */
-//     if (e.target.checked) {
-//         document.documentElement.setAttribute('theme', 'dark');
-//     }
- 
-//     /* While page in dark mode and checkbox is
-//     checked then theme back to change light*/
-//     else {
-//         document.documentElement.setAttribute('theme', 'light');
-//     }
-// }
- 
-// toggleSwitch.addEventListener('change', switchTheme, false);
 
 function App() {
     const [currencyOptions, setCurrencyOptions] = useState([])
@@ -46,6 +15,8 @@ function App() {
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
     const [countryFlagFrom, setCountryFlagFrom] = useState()
     const [countryFlagTo, setCountryFlagTo] = useState()
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
+
 
     let toAmount, fromAmount
     if (amountInFromCurrency) {
@@ -114,8 +85,20 @@ function App() {
         }
     }
 
+    function changeTheme() {
+        setIsDarkMode(!isDarkMode)
+        if (isDarkMode){
+            document.documentElement.setAttribute("data-theme", "light") // set theme light
+            localStorage.setItem("data-theme", 'light') // save theme to local storage
+        } else{
+            document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
+            localStorage.setItem("data-theme", "dark") // save theme to local storage
+        }  
+    }
+
     return (
-        <>
+        <>      
+            <DarkModeToggle onChange={changeTheme} checked={isDarkMode} size={60} className="darkModeToggle" />
             <h1> Currency Converter </h1>
 
             <Row 
@@ -140,38 +123,6 @@ function App() {
         </>
 
     );
-}
-
-// const themeSwitch = document.querySelector('switch');
-
-// themeSwitch.addEventListener('change', () => {
-//   document.body.classList.toggle('dark-theme');
-// });
-
-var button = document.createElement("button");
-button.innerHTML = "Switch Theme";
-
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-button.addEventListener ("click", function() {
-    let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
-    if (theme ==='dark'){
-        changeThemeToLight()
-    }else{
-        changeThemeToDark()
-    }  
-});
-
-// let theme = localStorage.getItem('data-theme');
-const changeThemeToDark = () => {
-    document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
-    localStorage.setItem("data-theme", "dark") // save theme to local storage
-}
-
-const changeThemeToLight = () => {
-    document.documentElement.setAttribute("data-theme", "light") // set theme light
-    localStorage.setItem("data-theme", 'light') // save theme to local storage
 }
 
 export default App;

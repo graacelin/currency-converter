@@ -7,12 +7,12 @@
 
 :root {
   --color-light: #ced2ff;
-  --color-dark: #2b2b2b;
-  --color-signal: #c1caff;
+  --color-dark: #363636;
+  --color-signal: #dfe3ff;
   
   --bg-panel: var(--color-signal);
   --color-text: var(--color-dark);
-  --color-accent: var(--color-dark);
+  --color-accent: var(--color-light);
   
   --size-bezel: .5rem;
   --size-radius: 4px;
@@ -109,12 +109,12 @@ body {
 }
 
 main {
-  width: 350px;
+  width: 400px;
   background: var(--bg);
   border-radius: var(--size-radius);
   border: 3px solid var(--color-shadow, currentColor);
   box-shadow: .8rem .8rem 0 var(--color-shadow, currentColor);
-  padding: 4% 5%;
+  padding: 25px;
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 7px;
@@ -123,7 +123,8 @@ main {
 }
 
 h1 {
-  font-size: 2em;
+  margin: 2em ;
+  font-size: 40px;
   margin: 0;
   font-weight: bold;
   padding-bottom: 20px;
@@ -142,7 +143,7 @@ h1 {
 }
 
 .numInput {
-  width: 50%;
+  width: 45%;
   font-size: 17px;
   border-width: 1px;
   border-style: solid;
@@ -165,6 +166,10 @@ select {
   border-radius: .3em;
   padding: .25rem;
   margin-right: 2mm;
+}
+
+.darkModeToggle {
+  padding: 20px
 }
 
 
