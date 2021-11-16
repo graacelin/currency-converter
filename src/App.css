@@ -109,23 +109,24 @@ body {
 }
 
 main {
-  width: 30%;
+  width: 350px;
   background: var(--bg);
-  padding: calc(4 * var(--size-bezel));
   border-radius: var(--size-radius);
   border: 3px solid var(--color-shadow, currentColor);
   box-shadow: .8rem .8rem 0 var(--color-shadow, currentColor);
-  padding: 5%;
+  padding: 4% 5%;
+  margin-left: 5vw;
+  margin-right: 5vw;
   border-radius: 7px;
   background-color: var(--bg-panel);
   /* box-shadow: 7px 7px 20px var(--color-text); */
 }
 
 h1 {
-  font-size: 3vw;
+  font-size: 2em;
   margin: 0;
   font-weight: bold;
-  padding-bottom: 2vh;
+  padding-bottom: 20px;
 }
 
 .equals {
